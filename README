@@ -1,0 +1,22 @@
+Pivot Filtering:
+
+I. Co-occurence Matrix:
+   The co-occurence matrix gives a measure of the probability that a company is listed under
+  any given pair of headings. These probabilities are determined based on the amount of money
+  other companies invest in both headings.
+
+II. Pivot Filtering:
+   The filter is given a company and list of possible headings. Each heading is given a raw 
+  score that represents the confidence that the heading belongs.
+ A. Initial Pivots:
+    The filter chooses some headings to initially pivot from. It chooses the initial pivots
+   based on the raw score. The top "cluster" of headings are used. That is the clear outliers
+   that have the highest score are used.
+ B. Pivoting:
+    Using the co-occurence matrix, the program determines the probability that the remaining
+   headings belong given that the intial pivot headings belong. Using these probabilities the
+   program gives each heading a co-occurence score.
+ C. Filtering:
+    Then the program pivots from each heading that now has a positive co-occurence score.  The
+   program keeps all headings that have a co-occurence score greater than the average of the
+   non-zero co-occurence scores for all the headings.
